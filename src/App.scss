@@ -1,0 +1,21 @@
+header{
+    padding: 10px;
+    background-color: $black;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    color: $white;
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+main{
+    padding-bottom: 20px;
+}

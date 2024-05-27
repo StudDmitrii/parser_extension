@@ -1,0 +1,12 @@
+.header-link{
+    width: 40px;
+    height: 40px;
+
+    border-radius: 1000px;
+    background-color: $yellow;
+
+    &:hover{
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}

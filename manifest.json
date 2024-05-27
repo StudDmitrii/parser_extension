@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "version": "0.0.1",
+    "name": "parser",
+    "action":{
+        
+    },
+    "side_panel":{
+        "default_path":"index.html"
+    },
+    "background":{
+        "service_worker": "bg.js"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "sidePanel",
+        "tabs"
+    ],
+    "host_permissions":[
+        "<all_urls>"
+    ]
+}
