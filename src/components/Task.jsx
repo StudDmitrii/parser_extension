@@ -1,29 +1,30 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import './Task.scss'
 
-export default function Task({taskNumber, taskTitle, done=false, children}){
+export default function Task({taskNumber, taskTitle, done=false, children, onClick}){
 
     const return_btn_ref = useRef(null)
+    const task_body_ref = useRef(null)
 
-    const onTaskBodyRefChange = useCallback(el => {
-        if (done == true){
-            el.classList.add('done')
-            return_btn_ref.current.style.cssText = 'visibility: visible;'
-        }
-        else if (done == false){
-            el.classList.remove('done')
-            return_btn_ref.current.style.cssText = 'visibility: hidden;'
-        }
-    }, [])
+    useEffect(()=>{
+            if (done == true){
+                task_body_ref.current.style.cssText = 'display: none;'
+                return_btn_ref.current.style.cssText = 'display: unset;'
+            }
+            else {
+                task_body_ref.current.style.cssText = 'display: unset;'
+                return_btn_ref.current.style.cssText = 'display: none;'
+            }
+    },[done])
 
     return (
     <div className="task">
         <div className="task-header">
             <div className='task-number'>{taskNumber}</div>
             <div className='task-title'>{taskTitle}</div>
-            <button ref={return_btn_ref} className='task-return-btn' title={'Вернуться к шагу ' + taskNumber}></button>
+            <button ref={return_btn_ref} className='task-return-btn' onClick={onClick} title={'Вернуться к шагу ' + taskNumber}></button>
         </div>
-        <div ref={onTaskBodyRefChange} className='task-body'>{children}</div>
+        <div ref={task_body_ref} className='task-body'>{children}</div>
     </div>
     )
 }

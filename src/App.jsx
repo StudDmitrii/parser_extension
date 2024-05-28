@@ -1,12 +1,39 @@
+import { useEffect, useState } from 'react'
 import './App.scss'
 import HeaderLink from './components/HeaderLink'
 import Task from './components/Task'
-import tasks from './components/tasks'
-
+import TaskSelWaySel from "./components/tasks/TaskSelWaySel"
+import TaskSelection from "./components/tasks/TaskSelection"
 
 export default function App() {
 
-  const activeTasks = tasks.parsing.slice(0,2)
+  const [activeTasks, setActiveTasks] = useState([])
+
+  const tasks = [
+    {
+        taskTitle: 'Выбор элементов:',
+        task: <TaskSelWaySel nextTask={nextTask}/>
+    },
+    {
+        taskTitle: 'Выберите элементы на странице...',
+        task: <TaskSelection nextTask={nextTask}/>
+    },
+  ]
+
+  useEffect(()=>{
+    nextTask()
+  }, [])
+
+  function nextTask(prevTaskTitle){
+    setActiveTasks(old=>{
+      if (old.length == tasks.length){
+        return old
+      }
+      const last_el = old[old.length-1]
+      prevTaskTitle ? last_el.taskTitle = prevTaskTitle : null
+      return [...old, tasks[old.length]]
+    })
+  }
 
   return (
     <>
@@ -14,7 +41,7 @@ export default function App() {
         <div className='logo'>DataFisher</div>
         <nav>
           <HeaderLink img={'./src/assets/img/docs.png'} title={'Документация'}/>
-          <HeaderLink img={'./src/assets/img/acc.png'} title={'Действия'}/>
+          <HeaderLink img={'./src/assets/img/tools.png'} title={'Инструменты'}/>
         </nav>
       </header>
 

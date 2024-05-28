@@ -1,11 +1,15 @@
 import './TaskSelection.scss'
 import SelecBtn from './btns/SelectBtn'
 
-export default function TaskSelection(){
+export default function TaskSelection({nextTask}){
+
+    function taskOver(){
+        nextTask()
+    }
 
     return(
         <div className='buttons'>
-            <SelecBtn>Далее</SelecBtn>
+            <SelecBtn onClick={taskOver}>Далее</SelecBtn>
         </div>
     )
 }

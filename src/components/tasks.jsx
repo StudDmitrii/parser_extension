@@ -5,11 +5,11 @@ export default {
     parsing:[
         {
             taskTitle: 'Выбор элементов:',
-            task: <TaskSelWaySel/>
+            task: <TaskSelWaySel nextTask={nextTask}/>
         },
         {
             taskTitle: 'Выберите элементы на странице...',
-            task: <TaskSelection/>
+            task: <TaskSelection nextTask={nextTask}/>
         },
     ],
 }

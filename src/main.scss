@@ -6,7 +6,17 @@
 }
 
 html{
-  overflow: auto;
+  overflow-y: auto;
+}
+
+html::-webkit-scrollbar{
+  width: 5px;
+  background-color: $black;
+}
+
+html::-webkit-scrollbar-thumb{
+  border-radius: 100px;
+  background-color: $yellow;
 }
 
 body {

@@ -1,13 +1,14 @@
 import './TaskSelWaySel.scss'
 import SelecBtn from './btns/SelectBtn'
 
-export default function TaskSelWaySel(){
+export default function TaskSelWaySel({nextTask}){
 
     function handSelection(e){
-        
+        nextTask('Выбор элементов: ручной')
     }
 
     function autoSelection(e){
+        nextTask('Выбор элементов: авто')
         //toDo
     }
 
