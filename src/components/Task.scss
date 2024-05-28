@@ -23,7 +23,25 @@
         }
 
         .task-title{
-            padding-bottom: 5px;
+            padding-top: 5px;
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+
+        .task-return-btn{
+            border: none;
+            width: 20px;
+            height: 20px;
+            background-color: unset;
+            background-image: url('./src/assets/img/back.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.5;
+
+            &:hover, &:focus{
+                box-shadow: none;
+            }
         }
     }
 

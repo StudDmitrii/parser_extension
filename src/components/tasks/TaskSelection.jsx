@@ -1,11 +1,11 @@
 import './TaskSelection.scss'
 import SelecBtn from './btns/SelectBtn'
 
-export default function TaskSelWaySel(){
+export default function TaskSelection(){
 
     return(
         <div className='buttons'>
-            <SelecBtn onClick={handSelection}>Далее</SelecBtn>
+            <SelecBtn>Далее</SelecBtn>
         </div>
     )
 }

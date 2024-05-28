@@ -1,41 +1,28 @@
-import { useState } from 'react'
 import './App.scss'
 import HeaderLink from './components/HeaderLink'
 import Task from './components/Task'
-import TaskSelWaySel from './components/tasks/TaskSelWaySel'
+import tasks from './components/tasks'
+
 
 export default function App() {
 
-  const tasks = [
-    {
-      taskTitle: 'Cпособ поиска данных:',
-      task: <TaskSelWaySel/>
-    },
-    {
-      taskTitle: 'Cпособ поиска данных:',
-      task: <TaskSelWaySel/>
-    },
-    {
-      taskTitle: 'Cпособ поиска данных:',
-      task: <TaskSelWaySel/>
-    },
-  ]
+  const activeTasks = tasks.parsing.slice(0,2)
 
   return (
     <>
       <header>
         <div className='logo'>DataFisher</div>
         <nav>
-          <HeaderLink/>
-          <HeaderLink/>
+          <HeaderLink img={'./src/assets/img/docs.png'} title={'Документация'}/>
+          <HeaderLink img={'./src/assets/img/acc.png'} title={'Действия'}/>
         </nav>
       </header>
 
       <main>
         
-        {tasks.map((el,index)=>(
+        {activeTasks.map((el,index)=>(
           <Task
-            done={index == tasks.length-1 ? false : true}
+            done={index == activeTasks.length-1 ? false : true}
             key={index}
             taskNumber={index+1}
             taskTitle={el.taskTitle}

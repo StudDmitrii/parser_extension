@@ -3,10 +3,14 @@
     height: 40px;
 
     border-radius: 1000px;
-    background-color: $yellow;
+    background-color: $white2;
+    background-image: url('./src/assets/img/docs');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
 
     &:hover{
         cursor: pointer;
-        opacity: 0.8;
+        background-size: 65%;
     }
 }
