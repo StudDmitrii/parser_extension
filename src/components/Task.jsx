@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import './Task.scss'
 
-export default function Task({taskNumber, taskTitle, done=false, children, onClick}){
+export default function Task({taskNumber, taskTitle, done=false, children, returnHandler}){
 
     const return_btn_ref = useRef(null)
     const task_body_ref = useRef(null)
@@ -22,7 +22,12 @@ export default function Task({taskNumber, taskTitle, done=false, children, onCli
         <div className="task-header">
             <div className='task-number'>{taskNumber}</div>
             <div className='task-title'>{taskTitle}</div>
-            <button ref={return_btn_ref} className='task-return-btn' onClick={onClick} title={'Вернуться к шагу ' + taskNumber}></button>
+            <button
+                ref={return_btn_ref}
+                className='task-return-btn'
+                onClick={()=>returnHandler(taskNumber)}
+                title={'Вернуться к шагу ' + taskNumber}>
+            </button>
         </div>
         <div ref={task_body_ref} className='task-body'>{children}</div>
     </div>

@@ -15,6 +15,18 @@ export default function App() {
         task: <TaskSelWaySel nextTask={nextTask}/>
     },
     {
+      taskTitle: 'Выбор элементов:',
+      task: <TaskSelWaySel nextTask={nextTask}/>
+  },
+  {
+    taskTitle: 'Выбор элементов:',
+    task: <TaskSelWaySel nextTask={nextTask}/>
+},
+{
+  taskTitle: 'Выбор элементов:',
+  task: <TaskSelWaySel nextTask={nextTask}/>
+},
+    {
         taskTitle: 'Выберите элементы на странице...',
         task: <TaskSelection nextTask={nextTask}/>
     },
@@ -32,6 +44,14 @@ export default function App() {
       const last_el = old[old.length-1]
       prevTaskTitle ? last_el.taskTitle = prevTaskTitle : null
       return [...old, tasks[old.length]]
+    })
+  }
+
+  function returnTask(taskNumber){
+    setActiveTasks(old=>{
+      const new_tasks = old.slice(0,taskNumber)
+      new_tasks[new_tasks.length-1].taskTitle = tasks[new_tasks.length-1].taskTitle
+      return new_tasks
     })
   }
 
@@ -53,6 +73,7 @@ export default function App() {
             key={index}
             taskNumber={index+1}
             taskTitle={el.taskTitle}
+            returnHandler={returnTask}
           >
             {el.task}
           </Task>
