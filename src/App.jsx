@@ -15,18 +15,6 @@ export default function App() {
         task: <TaskSelWaySel nextTask={nextTask}/>
     },
     {
-      taskTitle: 'Выбор элементов:',
-      task: <TaskSelWaySel nextTask={nextTask}/>
-  },
-  {
-    taskTitle: 'Выбор элементов:',
-    task: <TaskSelWaySel nextTask={nextTask}/>
-},
-{
-  taskTitle: 'Выбор элементов:',
-  task: <TaskSelWaySel nextTask={nextTask}/>
-},
-    {
         taskTitle: 'Выберите элементы на странице...',
         task: <TaskSelection nextTask={nextTask}/>
     },

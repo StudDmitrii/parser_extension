@@ -8,6 +8,12 @@
     "side_panel":{
         "default_path":"index.html"
     },
+    "content_scripts":[
+        {
+            "js":["content_scripts/content.js"],
+            "matches":["<all_urls>"]
+        }
+    ],
     "background":{
         "service_worker": "bg.js"
     },
