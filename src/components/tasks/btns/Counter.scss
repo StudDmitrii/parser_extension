@@ -1,0 +1,38 @@
+.counter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    padding: 0 30px;
+}
+
+.counter-left, .counter-right{
+    width: 40px;
+    height: 40px;
+    border-radius: 1000px;
+    background-color: white;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-image: url('src/assets/img/right.png');
+}
+
+.counter-left:active, .counter-right:active{
+    background-color: white;
+}
+
+.counter-left{
+    transform: scaleX(-1);
+}
+
+.counter input{
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 0;
+    width: 200px;
+}

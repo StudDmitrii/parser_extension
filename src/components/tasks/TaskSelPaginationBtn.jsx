@@ -21,11 +21,11 @@ export default function TaskSelection({nextTask}){
     }, [])
 
     function taskOver(){
-        nextTask('Элементы выбраны')
+        nextTask('Кнопка пагинации выбрана')
     }
 
     return(
-        <div className='buttons'>
+        <div className='buttons special'>
             <SelecBtn onClick={taskOver}>Далее</SelecBtn>
         </div>
     )

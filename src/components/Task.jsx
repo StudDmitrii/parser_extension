@@ -9,10 +9,10 @@ export default function Task({taskNumber, taskTitle, done=false, children, retur
     useEffect(()=>{
             if (done == true){
                 task_body_ref.current.style.cssText = 'display: none;'
-                return_btn_ref.current.style.cssText = 'display: unset;'
+                return_btn_ref.current.style.cssText = 'display: block;'
             }
             else {
-                task_body_ref.current.style.cssText = 'display: unset;'
+                task_body_ref.current.style.cssText = 'display: flex;'
                 return_btn_ref.current.style.cssText = 'display: none;'
             }
     },[done])

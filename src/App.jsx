@@ -4,6 +4,13 @@ import HeaderLink from './components/HeaderLink'
 import Task from './components/Task'
 import TaskSelWaySel from "./components/tasks/TaskSelWaySel"
 import TaskSelection from "./components/tasks/TaskSelection"
+import docs_png from '/src/assets/img/docs.png'
+import tools_png from '/src/assets/img/tools.png'
+import TaskCountElement from './components/tasks/TaskCountElements'
+import TaskSelPagination from './components/tasks/TaskSelPagination'
+import TaskSelPaginationBtn from './components/tasks/TaskSelPaginationBtn'
+import TaskStart from './components/tasks/TaskStart'
+import TaskEnd from './components/tasks/TaskEnd'
 
 export default function App() {
 
@@ -17,6 +24,26 @@ export default function App() {
     {
         taskTitle: 'Выберите элементы на странице...',
         task: <TaskSelection nextTask={nextTask}/>
+    },
+    {
+      taskTitle: 'Сколько записей необходимо найти?',
+      task: <TaskCountElement nextTask={nextTask}/>
+    },
+    {
+      taskTitle: 'Как получить больше записей?',
+      task: <TaskSelPagination nextTask={nextTask}/>
+    },
+    // {
+    //   taskTitle: 'Выберите ссылку или кнопку на странице...',
+    //   task: <TaskSelPaginationBtn nextTask={nextTask}/>
+    // },
+    {
+      taskTitle: '',
+      task: <TaskStart nextTask={nextTask}/>
+    },
+    {
+      taskTitle: '',
+      task: <TaskEnd nextTask={nextTask}/>
     },
   ]
 
@@ -48,8 +75,8 @@ export default function App() {
       <header>
         <div className='logo'>DataFisher</div>
         <nav>
-          <HeaderLink img={'./src/assets/img/docs.png'} title={'Документация'}/>
-          <HeaderLink img={'./src/assets/img/tools.png'} title={'Инструменты'}/>
+          <HeaderLink img={docs_png} title={'Документация'}/>
+          <HeaderLink img={tools_png} title={'Инструменты'}/>
         </nav>
       </header>
 
@@ -59,7 +86,7 @@ export default function App() {
           <Task
             done={index == activeTasks.length-1 ? false : true}
             key={index}
-            taskNumber={index+1}
+            taskNumber={index < 5 ? index+1 : null}
             taskTitle={el.taskTitle}
             returnHandler={returnTask}
           >

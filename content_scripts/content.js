@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener((req, sender, sendMessage)=>{
     if (req == 'auto_selection'){
         //TODO
     }
-    if (req == 'stop_hand_selecion'){
+    if (req == 'stop_hand_selection'){
         document.removeEventListener('click', getElementByClick)
     }
 })
